@@ -6,10 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+//@Entity
+//@Table
+//@Data
+//@NoArgsConstructor
+//@AllArgsConstructor
 public class Ticket {
+
 }

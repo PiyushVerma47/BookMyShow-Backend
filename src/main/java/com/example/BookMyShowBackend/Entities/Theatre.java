@@ -2,6 +2,7 @@ package com.example.BookMyShowBackend.Entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,8 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "theatres")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Theatre {

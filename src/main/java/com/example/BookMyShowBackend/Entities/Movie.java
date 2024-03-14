@@ -4,6 +4,7 @@ import com.example.BookMyShowBackend.Eums.Genre;
 import com.example.BookMyShowBackend.Eums.Language;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,7 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "movies")
+@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,7 +22,7 @@ public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String movieId;
+    private int movieId;
 
     @Column(unique = true,nullable = false)
     private String movieName;
