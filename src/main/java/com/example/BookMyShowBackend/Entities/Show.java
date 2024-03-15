@@ -2,6 +2,7 @@ package com.example.BookMyShowBackend.Entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,8 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "shows")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Show {
@@ -29,10 +31,16 @@ public class Show {
     @ManyToOne
     private Movie movie;
 
+
     @JoinColumn
     @ManyToOne
     private Theatre theatre;
 
     @OneToMany(mappedBy = "show",cascade = CascadeType.ALL)
     private List<ShowSeat> showSeatList = new ArrayList<>();
+
+    public Show(LocalDate showDate, LocalTime showTime) {
+        this.showDate = showDate;
+        this.showTime = showTime;
+    }
 }

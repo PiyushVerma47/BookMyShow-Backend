@@ -27,4 +27,14 @@ public class MovieService {
 
         return "Movie with movie name "+ movie.getMovieName()+ " and movie Id " + movie.getMovieId() +" has been saved to the db";
     }
+
+    public String getMovie(String movieName){
+        Movie movie = movieRepository.findMovieByMovieName(movieName);
+        return movie.getMovieName();
+    }
+
+    public String getMovieById(int movieId){
+        Movie movie = movieRepository.findById(movieId).get();
+        return movie.getMovieName();
+    }
 }
