@@ -7,11 +7,13 @@ import com.example.BookMyShowBackend.Eums.SeatType;
 import com.example.BookMyShowBackend.Repository.TheatreRepository;
 import com.example.BookMyShowBackend.Requests.AddTheatreRequest;
 import com.example.BookMyShowBackend.Requests.AddTheatreSeatsRequest;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Service
 public class TheatreService {

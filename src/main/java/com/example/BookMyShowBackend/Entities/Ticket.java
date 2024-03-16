@@ -2,16 +2,17 @@ package com.example.BookMyShowBackend.Entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tickets")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Ticket {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ticketId;
@@ -23,5 +24,4 @@ public class Ticket {
     @JoinColumn
     @ManyToOne
     private Show show;
-
 }

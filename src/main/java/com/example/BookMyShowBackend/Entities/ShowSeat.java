@@ -17,7 +17,7 @@ public class ShowSeat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer showSeatId;
+    private int showSeatId;
 
     private int price;
 
@@ -25,9 +25,10 @@ public class ShowSeat {
 
     private boolean foodAttached;
 
-    private String seatNo; //These values will
-    private SeatType seatType; //come from the Theater seats
-    //based on mapping or seat structure
+    private String seatNo;
+
+    @Enumerated(value = EnumType.STRING)
+    private SeatType seatType;
 
 
     @JoinColumn

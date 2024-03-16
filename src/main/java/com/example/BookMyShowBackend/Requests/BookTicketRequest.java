@@ -1,11 +1,13 @@
 package com.example.BookMyShowBackend.Requests;
 
+import com.example.BookMyShowBackend.Eums.SeatType;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
 public class BookTicketRequest {
-    public int showId;
-    public List<String> seatList;
+    private int showId;
+    private List<String> seatList;
+
 }
