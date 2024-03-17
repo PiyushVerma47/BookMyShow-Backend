@@ -3,8 +3,10 @@ package com.example.BookMyShowBackend.Services;
 import com.example.BookMyShowBackend.Entities.Show;
 import com.example.BookMyShowBackend.Entities.ShowSeat;
 import com.example.BookMyShowBackend.Entities.Ticket;
+import com.example.BookMyShowBackend.Entities.User;
 import com.example.BookMyShowBackend.Repository.ShowRepository;
 import com.example.BookMyShowBackend.Repository.TicketRepository;
+import com.example.BookMyShowBackend.Repository.UserRepository;
 import com.example.BookMyShowBackend.Requests.BookTicketRequest;
 import com.example.BookMyShowBackend.Responses.ViewTicketResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +24,14 @@ public class TicketService {
     @Autowired
     private ShowRepository showRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
 
     public String bookTicket(BookTicketRequest bookTicketRequest) throws Exception{
         Show show = showRepository.findById(bookTicketRequest.getShowId()).get();
+
+        User user =  userRepository.findByEmailId(bookTicketRequest.getUserEmailId());
 
         List<ShowSeat> showSeatList = show.getShowSeatList();
         int totalBill = 0;
@@ -51,9 +58,11 @@ public class TicketService {
                 .seatNosBooked(bookTicketRequest.getSeatList().toString())
                 .totalAmountPaid(totalBill)
                 .show(show)
+                .user(user)
                 .build();
 
         show.getTicketList().add(ticket);
+        user.getTicketList().add(ticket);
         ticket = ticketRepository.save(ticket);
 
         return "Ticket for the movie: "+ show.getMovie().getMovieName() +" has been booked with the ticket Id: "+ticket.getTicketId()+" and total bill generated if of Rs." + ticket.getTotalAmountPaid();

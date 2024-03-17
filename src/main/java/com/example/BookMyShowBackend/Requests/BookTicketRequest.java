@@ -9,5 +9,7 @@ import java.util.List;
 public class BookTicketRequest {
     private int showId;
     private List<String> seatList;
+    private String userEmailId;
 
+//    private int userId;
 }
