@@ -46,7 +46,7 @@ public class TicketService {
                         showSeat.setAvailable(Boolean.FALSE);
                         totalBill += showSeat.getPrice();
 
-                        if(bookTicketRequest.getSeatAvailability().equals("YES")){
+                        if(bookTicketRequest.getFoodSelected().equals("YES")){
                             totalBill+=123;
                             showSeat.setFoodAttached(Boolean.TRUE);
                         }

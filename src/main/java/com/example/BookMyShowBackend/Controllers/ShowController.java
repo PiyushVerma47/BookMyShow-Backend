@@ -46,7 +46,7 @@ public class ShowController {
     @PostMapping("/addShowSeats")
     public ResponseEntity addShowSeats(@RequestBody AddShowSeatRequest addShowSeats){
 
-        System.out.println("in show controlller");
+        System.out.println("in show controller");
 
         String result = showService.addShowSeats(addShowSeats);
         return new ResponseEntity(result,HttpStatus.OK);

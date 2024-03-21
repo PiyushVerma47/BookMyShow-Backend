@@ -11,6 +11,6 @@ public class BookTicketRequest {
     private int showId;
     private List<String> seatList;
     private String userEmailId;
-    private String seatAvailability;
+    private String foodSelected;
 
 }
