@@ -45,6 +45,12 @@ public class TicketService {
                     if(showSeat.isAvailable()){
                         showSeat.setAvailable(Boolean.FALSE);
                         totalBill += showSeat.getPrice();
+
+                        if(bookTicketRequest.getSeatAvailability().equals("YES")){
+                            totalBill+=123;
+                            showSeat.setFoodAttached(Boolean.TRUE);
+                        }
+
                     }else{
                         throw new Exception("Seat No "+showSeat.getSeatNo()+" is already booked.");
                     }
